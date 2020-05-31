@@ -1,0 +1,12 @@
+#!/bin/bash
+function check {
+    echo "Booh!"
+}
+
+trap check SIGINT
+# If you press Ctrl + C when run the file, it will run function 'check'
+# SIGINT means a signal when user sends an interrupt signal (Ctrl + C)
+# SIGTERM means a signal when process has terminated or the program stopped
+
+sleep 30
+# Delay for 30 seconds

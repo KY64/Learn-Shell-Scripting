@@ -1,0 +1,31 @@
+#!/bin/bash
+
+# Create array
+a=(3 5 8 10 6)
+b=(6 5 4 12)
+c=(14 7 5 7)
+
+# Create empty array
+common=()
+
+# Iterating value in 'a' array as 'i' variable
+for i in ${a[@]}; do
+# Iterating value in 'b' array as 'j' variable
+  for j in ${b[@]}; do
+# Compare if value of 'i' and 'j' are same
+    if [ "$j" == "$i" ]; then
+# Iterating value in 'c' array as 'k' variable
+      for k in ${c[@]}; do
+# Compare if value of 'j' and 'k' are same
+        if [ "$k" == "$j" ]; then
+# Append 'k' value to 'common' array
+          common+=($k)
+# End if
+        fi
+# End loop
+      done
+    fi
+  done
+done
+
+echo ${common[@]}

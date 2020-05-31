@@ -1,0 +1,44 @@
+#!/bin/bash
+
+PRICE_PER_APPLE=5
+# Create variable
+# Make sure there is no whitespace between assignment (=)
+
+echo "\$PRICE_PER_APPLE $PRICE_PER_APPLE"
+# Use backslash (\) to escape special character
+# Use $ to get variable value in string
+
+greeting='Hello       world!'
+# It's ok to use whitespace along quotes
+FirstLetter="A   B   C"
+# And so along double quotes
+
+echo '\$greeting $greeting'
+# This will print EXACTLY what is typed
+echo "\$FirstLetter $FirstLetter"
+# This will convert $FirstLetter to its value
+echo "3 first letters are ${FirstLetter}"
+# This will print its value
+echo $greeting" : $greeting"
+# This will do
+# Notice any different? Yeah, see those whitespaces
+# It seems when you echo $ variable outside quotes the whitespaces are trimmed
+
+kernel=`uname -sr`
+# We could save command output to variable using backtick (`)
+echo 'value of $kernel is '$kernel
+# Now try to run 'uname -sr' and compare the value
+
+echo "My operating system is $(uname)"
+# This is the alternative to run command shell inside a string
+# Try run 'uname' and compare its output
+echo "My operating system is `uname`"
+# The output would be the same as before
+
+custom_date="Jan 01, 2000"
+BIRTHDATE=`date -d "$custom_date" "+%b %d, %Y"`
+Presents=10
+BIRTHDAY=`date -d "$custom_date" +%A`
+
+echo $BIRTHDATE
+echo $BIRTHDAY

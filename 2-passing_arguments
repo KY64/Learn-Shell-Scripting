@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo $1
+# $1 will print first argument after the script filename
+# Try run 'bash passing_arguments hello' or './passing_arguments hello'
+# Then change to 'hello' to 'MyArguments' or any word without whitespaces
+# 'hello' in this case is called Arguments
+
+echo
+# This will insert newline
+
+echo $2
+# $2 will print second argument after the script filename
+# Try run 'bash passing_arguments hello world' or './passing_arguments hello world'
+# It will only print 'world' because 'hello' is the first argument
+
+echo "There are "$#" arguments"
+# '$#' is for counting how many arguments are passed to the script
+
+echo $@
+# '$@' is including all arguments passed

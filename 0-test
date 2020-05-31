@@ -1,0 +1,14 @@
+#!/bin/bash
+# Must include 'sha-bang' to specify which shell to use
+
+ps | grep $$
+# To find out what is currently running
+
+echo $SHELL
+# To find out what shell type is being used
+
+which bash
+# To find the path of bash
+
+echo hello world
+# Print 'hello world'

@@ -1,0 +1,44 @@
+#!/bin/bash
+
+NAMES=(Joe Jenny Sara Tony)
+# Create array
+for N in ${NAMES[@]}; do
+# Iterating array value
+    echo $N
+done
+# 'done' for ending loop statement
+
+# You can also run command and iterate its value
+for stats in $(cat /etc/os-release); do
+# This will iterate every row of 'os-release' file
+    echo $stats
+done
+
+COUNT=0
+while [ $COUNT -lt 10 ]; do
+# Run loop if the condition is True
+# 'lt' means lower than
+    echo $COUNT
+    ((COUNT++))
+# Remember you need to do arithmetic operation inside '(( ))'
+done
+
+COUNT=0
+until [ $COUNT -eq 10 ]; do
+# Run loop if the condition is False, the opposite of While loop
+# 'eq' means equal to
+    echo $COUNT
+    ((COUNT++))
+done
+
+while [ 0 -lt $COUNT ]; do
+    ((COUNT--))
+    if [ $COUNT = 2 ]; then
+        break
+        # 'break' is for stopping loop then continue to the next statement
+    elif [ $COUNT = 6 ]; then
+        continue
+        # 'continue' is for skipping statement inside loop and jump to first statement inside loop
+    fi
+    echo $COUNT
+done

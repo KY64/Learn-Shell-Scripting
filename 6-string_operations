@@ -1,0 +1,65 @@
+#!/bin/bash
+
+STRING="this is a string"
+SUBSTRING="hat"
+
+echo ${#STRING}
+# Print length of string
+
+expr index "$STRING" "h"
+# Find index position of 'h' in $STRING
+# It will only print index position of the first occurence
+
+echo ${STRING:1}
+# Skip first character of string
+
+echo ${STRING:12}
+# Skip first 12 characters
+
+POS=1
+LEN=3
+
+echo ${STRING:$POS:$LEN}
+# Skip first character then print 3 characters afterward
+# $POS define how many characters are skipped
+# $LEN define how many characters are printed afterward
+
+# Simple extraction to get firstname
+DATARECORD="last=Clifford,first=Johnny Boy,state=CA"
+COMMA1=`expr index "$DATARECORD" ','`
+# Get index position of first comma
+CHOP1FIELD=${DATARECORD:$COMMA1}
+# Skip string before first comma
+COMMA2=`expr index "$CHOP1FIELD" ','`
+# Get index position of second comma
+LENGTH=`expr $COMMA2 - 6 - 1`
+# -6 to escape "first=" word, -1 to escape ","
+FIRSTNAME=${CHOP1FIELD:6:$LENGTH}
+# Escape 6 first characters and print 10 characters afterward
+echo $FIRSTNAME
+
+STR="to be or not to be"
+echo ${STR[@]/be/eat}
+# Replace the first "be" word with "eat"
+echo ${STR[@]//be/eat}
+# Replace "be" with "eat"
+echo ${STR[@]//not/}
+# Delete "not" word (or replace "not" with empty space)
+echo ${STR[@]/#to be/eat now}
+# Replace word at the beginning of $STR
+# Try remove "to" in "to be" and see its output
+echo ${STR[@]/%be/eat}
+# Replace word at the end of $STR
+# Try replace "be" with "not" and see its output
+echo ${STR[@]/%be/be on $(date +%Y-%m-%d)}
+# Replace word at the end of $STR with shell command output
+
+BUFFETT="Life is like a snowball. The important thing is finding wet snow and a really long hill."
+ISAY=$BUFFETT
+ISAY=${ISAY[@]/snow/foot}
+ISAY=${ISAY[@]/snow/}
+ISAY=${ISAY[@]/finding/getting}
+INDEX=${ISAY[@]/wet/wet!}
+INDEX=`expr index "$INDEX" "!"`
+ISAY=${ISAY::$INDEX}
+echo $ISAY

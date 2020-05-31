@@ -1,0 +1,35 @@
+#!/bin/bash
+
+function A {
+    echo "Yellow"
+}
+# Create function named A
+
+function B {
+    echo $1
+# Print first parameter of function
+}
+
+function print {
+    echo $1
+}
+
+A
+B "mate?"
+# In this case, $1 will be 'mate?'
+print $1
+# It will get parameter from shell command then pass to function parameter
+
+# Simple calculator
+function ENGLISH_CALC {
+    if [ $2 = 'plus' ]; then
+        RESULT=$(($1 + $3))
+    elif [ $2 = 'minus' ]; then
+        RESULT=$(($1 - $3))
+    elif [ $2 = 'times' ]; then
+        RESULT=$(($1 * $3))
+    fi
+    echo $RESULT
+}
+
+ENGLISH_CALC 2 times 21

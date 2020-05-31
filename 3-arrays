@@ -1,0 +1,23 @@
+#!/bin/bash
+
+arr=(1 2 3 "ready" "go!")
+# Use () to create an array
+# As you can see, the array above is dynamic. You can add integer and string altogether
+
+echo ${arr[2]}
+# First index of array is 0 so result above will print 3rd index of array
+# You can not call '$arr[2]' to get the value, try it to find out.
+
+echo ${arr[@]}
+# The output above will print all value in array
+
+echo "Length of array: "${#arr[@]}
+# The result will print length of array
+
+numbers=(1 2 3)
+strings=(hello world)
+NAMES=(Ricky John Steve)
+NumberOfNames=${#NAMES[@]}
+second_name=${NAMES[1]}
+
+echo ${second_name}

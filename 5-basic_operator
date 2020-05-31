@@ -1,0 +1,26 @@
+#!/bin/bash
+
+A=3
+B=20
+C=$(( 100 * ($A + $B - 2) / 10))
+# To use operator you need to type it in '$(( ))'
+D=4+5
+# This will not print the result of operation
+echo $C
+echo $D
+
+E=$((4 ** 3))
+# Use '**' for exponentiation
+# E is equal to 4 * 4 * 4
+echo $E
+
+F=$((99 % 11))
+# Use '%' for modulo operation
+echo $F
+
+COST_PINEAPPLE=50
+COST_BANANA=4
+COST_WATERMELON=23
+COST_BASKET=1
+TOTAL=$(( (50*1) + (4*2) + (3*23) ))
+echo "Total cost for 1 pineapple, 2 bananas, and 3 watermelons is $TOTAL"

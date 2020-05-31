@@ -1,0 +1,51 @@
+#!/bin/bash
+
+NAME="John"
+if [ "$NAME" = "John" ]; then
+   echo "True - my name is $NAME"
+fi
+# NOTE:
+# Make sure you give space between '[' or ']' with expression
+# For example, if ["$NAME" = "John"]
+# An error would occur because there is no space between '[' and "$NAME"
+
+NAME="Bill"
+if [ "$NAME" = "John" ]; then
+   echo "Yap, I'm $NAME"
+else
+   echo "False"
+   echo "You must be mistaken me for $NAME"
+fi
+# 'fi' is for ending if statement, it MUST be included
+
+NAME="George"
+if [ "$NAME" = "John" ]; then
+   echo "Hi, I'm $NAME"
+elif [ "$NAME" = "George" ]; then
+   echo "George Harrison"
+else
+   echo "This leave us with Paul and Ringo"
+fi
+
+NUM=10
+NUM2=0
+if [ $NUM > $NUM2 ]; then
+   echo "Greater than zero"
+else
+   echo "Equal to or lower than zero"
+fi
+# You can replace '>' with '-gt', short for 'greater than'
+
+mycase=yellow
+case $mycase in
+  red ) echo "First choice";;
+# 'red' is condition, it must continue with ')' before adding command
+  yell** ) echo "Second choice"
+        echo "Additional choice";;
+# You can define condition with Regular Expression
+  blue ) echo "Third choice";;
+  * ) echo "Default choice";;
+# '*' means default, if there's no matching condition then it will run the default
+# ';;' means break, it is required before adding next condition
+esac
+# 'esac' to end case statement
